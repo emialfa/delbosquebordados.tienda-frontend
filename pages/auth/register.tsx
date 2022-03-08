@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import close from '../../public/assets/x.png'
 import Image from 'next/image'
 import GoogleLogin from 'react-google-login';
-import { userLoginFaceebok, userLoginGoogle, userRegister, userRegisterGoogle} from '../../services/users'
+import { userLoginFacebook, userLoginGoogle, userRegister} from '../../services/users'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Products from '../../components/products'
@@ -210,7 +210,7 @@ const Register:NextPage = (props: InferGetStaticPropsType<typeof getStaticProps>
                 setMessage('¡Registro exitoso!')
                 setTimeout(()=> {
                     router.push("/auth/mailconfirm?regtoken="+ res.token)
-                }, 2000)
+                }, 4000)
             })
             .catch(err => {
                 setIsFetching(false);      
@@ -262,7 +262,7 @@ const Register:NextPage = (props: InferGetStaticPropsType<typeof getStaticProps>
                 favorites: localStorage.likes ? JSON.parse(localStorage.likes) : [],
                 cart: localStorage.cart ? localStorage.cart : '',
             }
-            const res:any = await userLoginFaceebok({accessToken, userID, ...form})
+            const res:any = await userLoginFacebook({accessToken, userID, ...form})
             res && setMessage('¡Ingreso exitoso!')
             setTimeout(()=> {
                 res && localStorage.setItem('token', res.token)

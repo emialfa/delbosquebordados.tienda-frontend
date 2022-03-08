@@ -4,7 +4,7 @@ import type { AppDispatch } from '../index'
 
 const init = (likes: string[]) => ({
         type: INIT_LOCAL_FAVORITES, 
-        likes: [...likes],
+        likes,
 })
 
 const initUser = (likes:string[]) => ({

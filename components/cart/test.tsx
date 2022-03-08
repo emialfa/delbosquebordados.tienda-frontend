@@ -1,7 +1,7 @@
-import {render, screen} from '@testing-library/react'
+import {fireEvent, render, screen} from '@testing-library/react'
 import { Provider } from 'react-redux';
-import { newLocalProduct, removeLocalOneProduct } from '../../store/actions/cart';
 import { createTestStore } from '../../utils/createTestStore';
+import { newLocalProduct, removeLocalOneProduct } from '../../store/actions/cart';
 import '@testing-library/jest-dom'
 import Cart from './';
 import { productTest } from '../../utils/productTest'
@@ -20,6 +20,7 @@ test('cart are returned', async () => {
     );
     expect(screen.getByText('Mi Carrito')).toBeInTheDocument();
 });
+
 test('display cart is none, then cart are not visible', () => {
   render(
     <Provider store={store}>
@@ -29,7 +30,32 @@ test('display cart is none, then cart are not visible', () => {
   expect(screen.getByText('Mi Carrito')).not.toBeVisible();
 })
 
-test('add one product to cart, then new cart are returned', async () => {
+test('Click on the button add one product to the cart, then the product quantity increases by one ', async () => {
+  store.dispatch(newLocalProduct(productTest, ''));
+  // Create a redux store
+ render(
+    <Provider store={store}>
+      <Cart hide={true} setHide={jest.fn()} />
+    </Provider>
+  );
+ fireEvent.click(screen.getByAltText('Add one'))
+ expect(screen.getByText('02')).toBeInTheDocument();
+});
+
+test('Click on the button remove one product to the cart, then the product quantity decreases by one', async () => {
+  store.dispatch(newLocalProduct(productTest, ''));
+  store.dispatch(newLocalProduct(productTest, ''));
+  // Create a redux store
+ render(
+    <Provider store={store}>
+      <Cart hide={true} setHide={jest.fn()} />
+    </Provider>
+  );
+ fireEvent.click(screen.getByAltText('Remove one'))
+ expect(screen.getByText('01')).toBeInTheDocument();
+});
+
+test('add one product to the cart, then new cart are returned', async () => {
     store.dispatch(newLocalProduct(productTest, ''));
     // Create a redux store
    render(
@@ -40,7 +66,7 @@ test('add one product to cart, then new cart are returned', async () => {
    expect(screen.getByText(productTest.name)).toBeInTheDocument();
   });
 
-test('remove one product to cart, then new cart are returned', async () => {
+test('remove one product to the cart, then new cart are returned', async () => {
     store.dispatch(newLocalProduct(productTest, ''));
     store.dispatch(removeLocalOneProduct(productTest, ''));
     // Create a redux store

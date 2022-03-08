@@ -69,6 +69,7 @@ const PaymentResultMP:NextPage = ({categories}:InferGetStaticPropsType<typeof ge
             getMPStatus(window.location.search)
             .then(res => {
             if (res.status === 'approved') {
+                console.log(res)
                 const form = {
                     paymentMPStatus: 'Aprobado',
                     paymentMPStatus_detail: res.statusDetail,

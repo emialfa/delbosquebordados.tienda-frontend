@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import close from '../../public/assets/x.png'
 import { login } from '../../store/actions/user'
 import GoogleLogin from 'react-google-login';
-import { userLogin, userLoginFaceebok, userLoginGoogle } from '../../services/users'
+import { userLogin, userLoginFacebook as userLoginFacebook, userLoginGoogle } from '../../services/users'
 import { useRouter } from 'next/router'
 import Products from '../../components/products'
 import Layout from '../../components/layout'
@@ -18,7 +18,6 @@ import { IProduct } from '../../types/product'
 import { ICategory } from '../../types/categories'
 import { IType } from '../../types/types'
 import FacebookLogin from 'react-facebook-login';
-import axios from 'axios'
 
 const Container = styled.div<{hide: number}>`
     display: ${(props) => props.hide ? 'none' : 'block' };
@@ -236,7 +235,7 @@ const Login: NextPage = (props: InferGetStaticPropsType<typeof getStaticProps>) 
                 favorites: localStorage.likes ? JSON.parse(localStorage.likes) : [],
                 cart: localStorage.cart ? localStorage.cart : '',
             }
-            const res:any = await userLoginFaceebok({accessToken, userID, ...form})
+            const res:any = await userLoginFacebook({accessToken, userID, ...form})
             res && setMessage('¡Ingreso exitoso!')
             setTimeout(()=> {
                 if (res.favorites.length > 0) {

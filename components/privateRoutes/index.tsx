@@ -16,7 +16,6 @@ const PrivateRoutes:React.FC = ({children}) => {
     return <Loader />
   }
 
-
   // Once the user request finishes, show the user
   return (
     <>

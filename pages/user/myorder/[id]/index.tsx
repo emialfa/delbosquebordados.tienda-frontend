@@ -281,7 +281,7 @@ const UserSingleOrder:NextPage = () => {
 
     useEffect(() => {
         if(router.query.payment === 'back') {
-            dispatch(emptyCart());
+            dispatch(emptyCart(user));
             router.replace(`${router.asPath.split('?')[0]}`, undefined, { shallow: true });
         }
     },[])

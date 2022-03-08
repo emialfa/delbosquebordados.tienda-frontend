@@ -1,5 +1,11 @@
 //URL
-export const URL_API = "https://delbosquebordados.com.ar/api/v1/" 
+let url = 'https://delbosquebordados.com.ar/api/v1/'
+
+if(process.env.NEXT_PUBLIC_APP_ENV === 'test') {
+    url = 'http://localhost:5001/api/v1/test/'
+} 
+
+export const URL_API = url
 
 // Products
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";

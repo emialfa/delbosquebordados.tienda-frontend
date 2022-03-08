@@ -87,7 +87,7 @@ const MiCuenta:React.FC<Props> = ( {hide, setHide, handleLogout}) => {
                     <Li>Mis datos</Li>
                     </a>
                     </Link>
-                    <Li onClick={() => handleLogout()}>Cerrar Sesión</Li>
+                    <Li onClick={() => handleLogout()}>Cerrar sesión</Li>
                     <Li>
                     </Li>
                 </Ul>

@@ -10,6 +10,7 @@ import { initProducts } from '../store/actions/products'
 import { initLocalCart, initUserCart } from '../store/actions/cart'
 import { initLocalFavorites, initUserFavorites } from '../store/actions/favorites'
 import { userRefreshToken } from '../services/users'
+import HeadLayout from '../components/head'
 
 export default function App({ Component, pageProps }: AppProps) {
   const store = useStore(pageProps.initialReduxState)
@@ -63,6 +64,8 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [syncLogout])
 
   return  (<Provider store={store}>
-  <Component {...pageProps} />
+    <HeadLayout>
+      <Component {...pageProps} />
+    </HeadLayout>
 </Provider>)
 }

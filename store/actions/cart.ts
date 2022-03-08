@@ -27,7 +27,7 @@ const RemoveToLocalCart = ( product:IProduct, token:string ) => ({
     token
 })
 
-const EmptyCart = () => ({
+const EmptyCart = (token:string) => ({
     type: 'EMPTY_CART'
 })
 
@@ -73,8 +73,8 @@ export const removeLocalProduct = (product: IProduct, token:string) => (dispatch
     dispatch(RemoveToLocalCart(product, token))
 }
 
-export const emptyCart = () => (dispatch: AppDispatch) => {
-    dispatch(EmptyCart())
+export const emptyCart = (token:string) => (dispatch: AppDispatch) => {
+    dispatch(EmptyCart(token))
 }
 export const addShipping = (cost: number, zip: number, city:string) => (dispatch: AppDispatch) => {
     dispatch(AddShipping(cost, zip, city))

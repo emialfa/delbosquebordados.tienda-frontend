@@ -84,6 +84,10 @@ const UpdateData = styled.div`
     margin: 0.3rem;
     cursor: pointer;
     text-align: center;
+
+    &:hover {
+        opacity: 0.7;
+    }
 `
 
 const ChangePassword = styled.div`
@@ -99,6 +103,11 @@ const ChangePassword = styled.div`
     margin: 0.3rem;
     cursor: pointer;
     text-align: center;
+
+    
+    &:hover {
+        opacity: 0.7;
+    }
 `
 
 const Background = styled.div`
@@ -175,11 +184,11 @@ const Submit = styled.div`
     cursor: pointer;
     border: none;
     color: #99877D;
+
+    &:hover {
+        opacity: 0.7;
+    }
 `
-
-
-
-
 const Close = styled.img`
     top: 50%;
     left: 50%;
@@ -188,6 +197,10 @@ const Close = styled.img`
     position: fixed;
     cursor: pointer;
     z-index: 3;
+
+    &:hover{
+        opacity: 0.7;
+    }
 `
 const Show = styled.img`
     position: absolute;
@@ -301,7 +314,7 @@ const UserConfig:NextPage = ({categories}:InferGetStaticPropsType<typeof getStat
                     <NameData>Teléfono:</NameData>
                     {!update ?
                     (<UserData>{userData?.phone}</UserData>)
-                    : (<InputData type='text' defaultValue={userData?.phone} ref={phone}></InputData>)}
+                    : (<InputData type='text' name='phone' defaultValue={userData?.phone} ref={phone}></InputData>)}
                 </Row>
                 <Row>
                     <NameData>Dni/Pasaporte:</NameData>
@@ -341,20 +354,20 @@ const UserConfig:NextPage = ({categories}:InferGetStaticPropsType<typeof getStat
             <WrapperChangePassword autoComplete="off">
                 <InputWrapper style={{position: 'relative'}}>
                     <TitleChangePassword>Contraseña anterior</TitleChangePassword>
-                    <Input type='password' name="prev" autoComplete="" ref={prevPassword}></Input>
+                    <Input type='password' name="actualPassword" autoComplete="" ref={prevPassword}></Input>
                     <Show src='/assets/showpassword.svg' onClick={() => handleShowPassword('prevPassword')}></Show>
                 </InputWrapper>
                 <InputWrapper style={{position: 'relative'}}>
                     <TitleChangePassword>Nueva contraseña</TitleChangePassword>
-                    <Input type='password' ref={password}></Input>
+                    <Input type='password' name="newPassword" ref={password}></Input>
                     <Show src='/assets/showpassword.svg' onClick={() => handleShowPassword('password')}></Show>
                 </InputWrapper>
                 <InputWrapper style={{position: 'relative'}}>
                     <TitleChangePassword>Repita nueva contraseña</TitleChangePassword>
-                    <Input type='password' ref={rePassword}></Input>
+                    <Input type='password' name="repeatNewPassword" ref={rePassword}></Input>
                     <Show src='/assets/showpassword.svg' onClick={() => handleShowPassword('rePassword')}></Show>
                 </InputWrapper>
-            <Submit onClick={handleChangePassword}>Cambiar contraseña</Submit>
+            <Submit onClick={handleChangePassword}>Guardar nueva contraseña</Submit>
             <Notification>{error && message}</Notification>
             </WrapperChangePassword>
             <Close src="/assets/x.png" alt="" onClick={() => setViewChangePassword(false)}></Close>

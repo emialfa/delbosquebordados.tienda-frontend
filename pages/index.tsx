@@ -37,7 +37,7 @@ const Home: NextPage = ({products, categories}: InferGetStaticPropsType<typeof g
           localStorage.removeItem('first')
         }, 3000)
       }
-    }, [])
+    }, [user])
   return (
     <>
       <Head>

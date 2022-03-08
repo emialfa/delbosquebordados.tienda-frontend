@@ -64,7 +64,7 @@ export const userLoginGoogle = async (form:any) => {
     }
 }
 
-export const userLoginFaceebok = async (form:any) => {
+export const userLoginFacebook = async (form:any) => {
     try{
         const res= await axios.post(URL_API + "users/login/facebookAuth", form)
         return res.data;
