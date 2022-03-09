@@ -31,7 +31,6 @@ const SearchComponent = styled.input`
     background-position: 42% 50%;
     outline: none;
     z-index: 1;
-
     &:focus{
         background-image: none;
         text-indent: 0px;
