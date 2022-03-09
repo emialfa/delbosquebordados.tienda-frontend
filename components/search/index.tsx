@@ -9,6 +9,7 @@ const Container = styled.section`
     display: flex;
     justify-content: center;
 `
+
 const SearchComponent = styled.input`
     display: flex;
     background: #FFFFFF;
