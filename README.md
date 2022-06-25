@@ -13,7 +13,7 @@ Ecommerce with shopping cart, products, user sessions, google and facebook authe
 
 <img src="https://res.cloudinary.com/djqqjhsaq/image/upload/v1642710938/ProductPage_-_Views_biosqg.png" />
 
-<img src="https://res.cloudinary.com/djqqjhsaq/image/upload/v1642710938/RegisterPage_-_Views_rgkfzd.png" />
+<img src="https://res.cloudinary.com/djqqjhsaq/image/upload/v1656117771/registerpage_wygohd.png" />
 
 <img src="https://res.cloudinary.com/djqqjhsaq/image/upload/v1642710938/Cart_-_Views_mumjof.png" />
 
